@@ -23,7 +23,7 @@ jobs:
         variant:
           - tasmota
           #- tasmota4M
-          #- tasmota-minimal
+          - tasmota-minimal
           #- tasmota-display
           #- tasmota-ir
           #- tasmota-knx
