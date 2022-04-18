@@ -327,6 +327,8 @@ void CommandHandler(char* topicBuf, char* dataBuf, uint32_t data_len)
 
 /********************************************************************************************/
 
+#define MAX(a,b) ((a)>(b)?(a):(b))
+
 void CmndBacklog(void) {
   // Backlog command1;command2;..   Execute commands in sequence with a delay in between set with SetOption34
   // Backlog0 command1;command2;..  Execute commands in sequence with no delay
@@ -379,7 +381,7 @@ void CmndBacklog(void) {
     }
 //    ResponseCmndChar(D_JSON_APPENDED);
     ResponseClear();
-    TasmotaGlobal.backlog_timer = max (TasmotaGlobal.backlog_timer, millis());
+    TasmotaGlobal.backlog_timer = MAX (TasmotaGlobal.backlog_timer, millis());
   } else {
     bool blflag = BACKLOG_EMPTY;
 #ifdef SUPPORT_IF_STATEMENT
