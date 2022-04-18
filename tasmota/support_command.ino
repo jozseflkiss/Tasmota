@@ -277,7 +277,7 @@ void CommandHandler(char* topicBuf, char* dataBuf, uint32_t data_len)
     DEBUG_CORE_LOG(PSTR("CMD: Payload %d"), payload);
 
 //    TasmotaGlobal.backlog_timer = millis() + (100 * MIN_BACKLOG_DELAY);
-    TasmotaGlobal.backlog_timer = millis() + Settings->param[P_BACKLOG_DELAY];  // SetOption34
+    TasmotaGlobal.backlog_timer = millis() + (10 * Settings->param[P_BACKLOG_DELAY]);  // SetOption34
 
     char command[CMDSZ] = { 0 };
     XdrvMailbox.command = command;
@@ -379,7 +379,7 @@ void CmndBacklog(void) {
     }
 //    ResponseCmndChar(D_JSON_APPENDED);
     ResponseClear();
-    TasmotaGlobal.backlog_timer = millis();
+    TasmotaGlobal.backlog_timer = MAX (TasmotaGlobal.backlog_timer, millis());
   } else {
     bool blflag = BACKLOG_EMPTY;
 #ifdef SUPPORT_IF_STATEMENT
