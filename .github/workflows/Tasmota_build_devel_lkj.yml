@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: development
+          ref: lkj_11.0
       - name: Set up Python
         uses: actions/setup-python@v1
       - name: Install dependencies
@@ -66,7 +66,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: development
+          ref: lkj_11.0
       - name: Set up Python
         uses: actions/setup-python@v1
       - name: Install dependencies
