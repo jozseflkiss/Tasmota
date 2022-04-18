@@ -379,7 +379,7 @@ void CmndBacklog(void) {
     }
 //    ResponseCmndChar(D_JSON_APPENDED);
     ResponseClear();
-    TasmotaGlobal.backlog_timer = MAX (TasmotaGlobal.backlog_timer, millis());
+    TasmotaGlobal.backlog_timer = max (TasmotaGlobal.backlog_timer, millis());
   } else {
     bool blflag = BACKLOG_EMPTY;
 #ifdef SUPPORT_IF_STATEMENT
